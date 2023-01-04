@@ -26,6 +26,14 @@ main.exe TRUYEN_WEB_URL START END
 
 So it will search for chapter 1 and it will end until chapter 2!!
 
+Example:
+
+```
+./main.exe https://truyenqqhot.com/truyen-tranh/chemy-12774 1 10
+```
+
+this will crawl all chapter from 1-9 :)
+
 # Not work?
 
 Please read those 3 step carefuly and then try it again.
