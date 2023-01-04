@@ -106,9 +106,9 @@ func GetChap(num string, url string) {
 	chromedp.ListenTarget(ctx, func(v interface{}) {
 		switch ev := v.(type) {
 		case *network.EventRequestWillBeSent:
-			if strings.Contains(ev.Request.URL, chap) && !strings.Contains(ev.Request.URL, "google") {
+			if strings.Contains(ev.Request.URL, chap) && !strings.Contains(ev.Request.URL, "google") && (strings.Contains(ev.Request.URL, "jpg") || strings.Contains(ev.Request.URL, "png") || strings.Contains(ev.Request.URL, "jpeg")) {
 				datas, format := URLResolver(ev.Request.URL)
-				if len(format) == 2 && format[1] != "html" {
+				if len(format) == 2 && (format[1] == "png" || format[1] == "jpg") {
 					log.Println(ev.Request.URL, format[0], format[1], datas[0], datas[1])
 					requestID[string(ev.RequestID)] = File{
 						url:     ev.Request.URL,
